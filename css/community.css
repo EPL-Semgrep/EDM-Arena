@@ -1,0 +1,195 @@
+body, html {
+    font-family: 'Roboto', sans-serif;
+    background-color: #0d0d0d;
+    color: #ffffff;
+    scroll-behavior: smooth;
+
+}
+header {
+    background-color: #000000;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+header img {
+    width: 50px;
+    margin-right: 10px;
+}
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+    letter-spacing: 2px;
+}
+nav {
+    background-color: #1a1a1a;
+    padding: 10px 0;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+nav a {
+    color: #ffffff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 1em;
+    transition: color 0.3s ease;
+}
+nav a:hover {
+    color: #ff8a00;
+}
+.container {
+    padding: 20px;
+}
+.section-title {
+    font-size: 2em;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #ffffff;
+    display: inline-block;
+    letter-spacing: 1px;
+}
+.form-section, .discussion-section, .members-section, .stats-section, .topics, .trending {
+    background-color: #1a1a1a;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.form-section input, .form-section textarea, .form-section button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: none;
+    font-family: 'Roboto', sans-serif;
+}
+.form-section input, .form-section textarea {
+    background-color: #333333;
+    color: #ffffff;
+}
+.form-section button {
+    background-color: #ff8a00;
+    color: #ffffff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.form-section button:hover {
+    background-color: #e52e71;
+}
+.discussion-item, .member-item, .stat-item, .topic, .thread {
+    display: flex;
+    align-items: center;
+    background-color: #333333;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.discussion-item img, .member-item img, .stat-item img, .topic img, .thread img {
+    border-radius: 10px;
+    margin-right: 15px;
+}
+.discussion-item h3, .member-item h3, .stat-item h3, .topic h3, .thread h3 {
+    margin: 0;
+    font-size: 1.5em;
+}
+.discussion-item p, .member-item p, .stat-item p, .topic p, .thread p {
+    margin: 5px 0 0 0;
+    color: #b3b3b3;
+}
+footer {
+    background-color: #1a1a1a;
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+}
+footer p {
+    margin: 0;
+}
+@media (min-width: 768px) {
+    .main-content {
+        display: flex;
+        justify-content: space-between;
+    }
+    .discussion-section, .topics, .trending {
+        flex: 2;
+        margin-right: 20px;
+    }
+    .stats-section {
+        flex: 1;
+    }
+}
+.create-post-icon {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    background-color: #ff8a00;
+    color: #ffffff;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.create-post-icon.rotate {
+    transform: rotate(45deg);
+}
+.create-post-icon:hover {
+    background-color: #e52e71;
+}
+.footer {
+    position: relative;
+    z-index: 3;
+}       
+.footer {
+    background-color: #111;
+    padding: 50px 20px;
+    text-align: center;
+}
+.footer .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.footer .logo img {
+    width: 50px;
+    margin-right: 10px;
+}
+.footer .logo span {
+    font-size: 24px;
+    font-weight: bold;
+}
+.footer .social-icons {
+    margin: 20px 0;
+}
+.footer .social-icons a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 24px;
+}
+.footer .social-icons a:hover {
+    color: #ff4081;
+}
+.footer .links {
+    margin: 20px 0;
+}
+.footer .links a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 14px;
+}
+.footer .links a:hover {
+    text-decoration: underline;
+}
+.footer p {
+    font-size: 14px;
+    color: #aaa;
+}
