@@ -46,6 +46,7 @@ $conn->close();
     <title>Sign Up Page</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.2/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="https://raw.githubusercontent.com/arvalen/Web/8a053a651c7b144d38cf3a91081211101d381e68/PWEB%20-%20ETS/Landing%20Page%20Store/img/logo.svg" type="image/x-icon">
 
     <style>
         .signup-container {
@@ -53,7 +54,7 @@ $conn->close();
             display: flex;
             align-items: center;
             justify-content: center;
-            background-image: url(https://github.com/arvalen/Web_Event/blob/main/AV%20edit.png?raw=trueimg/background.jpg);
+            background-image: url(https://github.com/arvalen/EDM-Arena/blob/main/img/AV_bg.png?raw=true);
             background-size: cover;
             background-position: center;
         }

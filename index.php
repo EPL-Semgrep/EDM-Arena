@@ -25,11 +25,12 @@ $news_result = $conn->query($news_sql);
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="https://raw.githubusercontent.com/arvalen/Web/8a053a651c7b144d38cf3a91081211101d381e68/PWEB%20-%20ETS/Landing%20Page%20Store/img/logo.svg" type="image/x-icon">
 </head>
 <body>
     <div class="navbar">
         <div class="logo">
-            <img src="https://arvalen.github.io/Web/img/va.png" alt="Logo">
+            <img src="https://raw.githubusercontent.com/arvalen/Web/8a053a651c7b144d38cf3a91081211101d381e68/PWEB%20-%20ETS/Landing%20Page%20Store/img/logo.svg" alt="Logo">
             <span>EDM Arena</span>
         </div>
         <div class="nav-links">
@@ -110,7 +111,7 @@ $news_result = $conn->query($news_sql);
 
     <div class="footer">
         <div class="logo">
-            <img src="https://arvalen.github.io/Web/img/va.png" alt="Logo">
+            <img src="https://raw.githubusercontent.com/arvalen/Web/8a053a651c7b144d38cf3a91081211101d381e68/PWEB%20-%20ETS/Landing%20Page%20Store/img/logo.svg" alt="Logo">
             <span>EDM Arena</span>
         </div>
         <div class="social-icons">
