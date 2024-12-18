@@ -12,8 +12,8 @@ if (isset($_GET['logout'])) {
 $festivals_sql = "SELECT * FROM festivals";
 $festivals_result = $conn->query($festivals_sql);
 
-$news_sql = "SELECT * FROM latestnews";
-$news_result = $conn->query($news_sql);
+$articles_sql = "SELECT * FROM articles ORDER BY published_at DESC LIMIT 5"; 
+$articles_result = $conn->query($articles_sql);
 ?>
 
 <!DOCTYPE html>
@@ -25,29 +25,32 @@ $news_result = $conn->query($news_sql);
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="shortcut icon" href="https://raw.githubusercontent.com/arvalen/Web/8a053a651c7b144d38cf3a91081211101d381e68/PWEB%20-%20ETS/Landing%20Page%20Store/img/logo.svg" type="image/x-icon">
+    <link rel="shortcut icon" href="asset/logo.svg" type="image/x-icon">
 </head>
 <body>
     <div class="navbar">
         <div class="logo">
-            <img src="https://raw.githubusercontent.com/arvalen/Web/8a053a651c7b144d38cf3a91081211101d381e68/PWEB%20-%20ETS/Landing%20Page%20Store/img/logo.svg" alt="Logo">
+            <img src="asset/logo.svg" alt="Logo">
             <span>EDM Arena</span>
         </div>
         <div class="nav-links">
+            <a href="newmusic.php">NEW MUSIC</a>
             <a href="#upcoming-festivals">UPCOMING FESTIVALS & EVENTS</a>
             <a href="#latest-news">LATEST NEWS</a>
             <a href="community.php">COMMUNITY</a>
         </div>
-        <div class="account">
-            <i class="fas fa-user"></i>
-            <?php
-            if (isset($_SESSION['full_name'])) {
-                echo $_SESSION['full_name']; 
-                echo ' <a href="?logout=true">Logout</a>'; 
-            } else {
-                echo '<a href="signin.php">Log In</a>';
-            }
-            ?>
+        <div class="account dropdown">
+            <div class="user-icon" onclick="toggleDropdown()">
+                <i class="fas fa-user"></i>
+            </div>
+            <div class="dropdown-content" id="dropdownContent">
+                <?php if (isset($_SESSION['full_name'])): ?>
+                    <a href="myaccount.php"><i class="fas fa-user"></i> My Account</a>
+                    <a href="?logout=true"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                <?php else: ?>
+                    <a href="signin.php"><i class="fas fa-sign-in-alt"></i> Login</a>
+                <?php endif; ?>
+            </div>
         </div>
     </div>
 
@@ -90,28 +93,26 @@ $news_result = $conn->query($news_sql);
                 </div>
             <?php } ?>
         </div>
-
-
     </div>
 
     <div class="latest-news" id="latest-news">
-    <h2>Latest News</h2>
-    <div class="news-cards">
-        <?php while ($news = $news_result->fetch_assoc()) { ?>
-            <a href="article.php?id=<?php echo $news['id']; ?>" class="news-card" style="text-decoration: none; color: inherit;">
-                <img src="<?php echo $news['image_url']; ?>" alt="News Image">
-                <div class="card-content">
-                    <h2><?php echo $news['title']; ?></h2>
-                    <p><?php echo $news['details']; ?></p>
-                </div>
-            </a>
-        <?php } ?>
+        <h2>Latest News</h2>
+        <div class="news-cards">
+            <?php while ($article = $articles_result->fetch_assoc()) { ?>
+                <a href="article.php?id=<?php echo $article['id']; ?>" class="news-card" style="text-decoration: none; color: inherit;">
+                    <img src="<?php echo $article['image_url']; ?>" alt="News Image">
+                    <div class="card-content">
+                        <h2><?php echo $article['title']; ?></h2>
+                        <p><?php echo substr($article['content'], 0, 100) . '...'; ?></p> 
+                    </div>
+                </a>
+            <?php } ?>
+        </div>
     </div>
-</div>
 
     <div class="footer">
         <div class="logo">
-            <img src="https://raw.githubusercontent.com/arvalen/Web/8a053a651c7b144d38cf3a91081211101d381e68/PWEB%20-%20ETS/Landing%20Page%20Store/img/logo.svg" alt="Logo">
+            <img src="asset/logo.svg" alt="Logo">
             <span>EDM Arena</span>
         </div>
         <div class="social-icons">
@@ -128,6 +129,29 @@ $news_result = $conn->query($news_sql);
         </div>
         <p>&copy; 2024 EDM Arena. All rights reserved.</p>
     </div>
+
+    <script>
+        function toggleDropdown() {
+            var dropdownContent = document.getElementById("dropdownContent");
+            if (dropdownContent.style.display === "block") {
+                dropdownContent.style.display = "none";
+            } else {
+                dropdownContent.style.display = "block";
+            }
+        }
+
+        window.onclick = function(event) {
+            if (!event.target.matches('.user-icon') && !event.target.matches('.user-icon *')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.style.display === "block") {
+                        openDropdown.style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
 
     <?php
     $conn->close();
